@@ -63,13 +63,15 @@ public class ExternalStorageActivity extends UtilityActivity {
 
     private boolean isExternalStorageWritable()
     {
-        return Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());
+        //Ensure the external storage is in fact an sd card and not the emulated one that's built into android devices
+        return Environment.isExternalStorageRemovable() && Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());
     }
 
     private boolean isExternalStorageReadable()
     {
         String state = Environment.getExternalStorageState();
-        return Environment.MEDIA_MOUNTED.equals(state) || Environment.MEDIA_MOUNTED_READ_ONLY.equals(state);
+        //Ensure the external storage is in fact an sd card and not the emulated one that's built into android devices
+        return Environment.isExternalStorageRemovable() && Environment.MEDIA_MOUNTED.equals(state) || Environment.MEDIA_MOUNTED_READ_ONLY.equals(state);
     }
 
 }

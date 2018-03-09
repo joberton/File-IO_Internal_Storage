@@ -7,9 +7,14 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 public class UtilityActivity extends AppCompatActivity {
 
@@ -17,9 +22,14 @@ public class UtilityActivity extends AppCompatActivity {
     {
         try
         {
-            FileOutputStream outputStream = new FileOutputStream(file);
-            outputStream.write(data.getBytes());
-            outputStream.close();
+            FileOutputStream outputStream = new FileOutputStream(file,true);
+
+            BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream));
+
+            bufferedWriter.write(data);
+            bufferedWriter.newLine();
+
+            bufferedWriter.close();
             Toast.makeText(getApplicationContext(), "Data has been successfully written to storage",Toast.LENGTH_SHORT).show();
         }
         catch (Exception e)
@@ -36,8 +46,9 @@ public class UtilityActivity extends AppCompatActivity {
         try
         {
             FileInputStream inputStream = new FileInputStream(file);
-            while((asciiCharacter = inputStream.read()) != -1)
-            {
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+
+            while((asciiCharacter = bufferedReader.read()) != -1) {
                 data.append(Character.toString((char) asciiCharacter));
             }
             inputStream.close();
