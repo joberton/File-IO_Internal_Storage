@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.fileio_code_example.MainActivity">
+    tools:context="com.example.fileio_code_example.ExternalStorageActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,32 +12,29 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="File input and output with internal storage"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            tools:layout_editor_absoluteY="39dp" />
+            android:text="File input and output with external storage"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="File Name:"
+            android:text="File name:"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
         <EditText
-            android:id="@+id/fileName"
+            android:id="@+id/externalFileName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -45,41 +42,23 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
         <EditText
-            android:id="@+id/fileData"
+            android:id="@+id/externalData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            android:inputType="textPersonName" />
 
         <Button
-            android:id="@+id/write"
+            android:id="@+id/externalWrite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Write"
-            app:layout_constraintTop_toBottomOf="@+id/fileData"
-            tools:layout_editor_absoluteX="66dp" />
+            android:text="Write" />
 
         <Button
-            android:id="@+id/read"
+            android:id="@+id/externalRead"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:text="Read"
-            app:layout_constraintTop_toBottomOf="@+id/fileData"
-            tools:layout_editor_absoluteX="229dp" />
-
-        <Button
-            android:id="@+id/externalStorage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="External Storage?" />
-
+            android:text="Read" />
     </LinearLayout>
-
 </android.support.constraint.ConstraintLayout>
