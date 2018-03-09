@@ -36,17 +36,11 @@ public class ExternalStorageActivity extends UtilityActivity {
             @Override
             public void onClick(View view) {
                 testExternalFile = getExternalDocumentFile(getApplicationContext(),getViewString(externalFileName.getId()));
-                try {
-                    if (view == externalWrite && isExternalStorageWritable()) {
-                        writeToStorage(testExternalFile,getViewString(externalFileData.getId()));
-
-                    } else if (view == externalRead && isExternalStorageReadable()) {
-                        externalFileData.setText(readFileFromStorage(testExternalFile));
-                    }
+                if (view == externalWrite && isExternalStorageWritable()) {
+                    writeToStorage(testExternalFile,getViewString(externalFileData.getId()));
                 }
-                catch(Exception e)
-                {
-                    Log.e("File_Error", "An error was encountered while reading or writing from a file: " + e.getMessage());
+                else if (view == externalRead && isExternalStorageReadable()) {
+                    externalFileData.setText(readFileFromStorage(testExternalFile));
                 }
             }
         };
