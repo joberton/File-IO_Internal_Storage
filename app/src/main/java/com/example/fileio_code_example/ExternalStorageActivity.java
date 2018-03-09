@@ -42,6 +42,10 @@ public class ExternalStorageActivity extends UtilityActivity {
                 else if (view == externalRead && isExternalStorageReadable()) {
                     externalFileData.setText(readFileFromStorage(testExternalFile));
                 }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Your device either contains an emulated sd card or is not mounted",Toast.LENGTH_SHORT).show();
+                }
             }
         };
 
