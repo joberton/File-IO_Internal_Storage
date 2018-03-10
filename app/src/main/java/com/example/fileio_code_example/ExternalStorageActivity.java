@@ -79,21 +79,25 @@ public class ExternalStorageActivity extends UtilityActivity {
     private File getExternalPublicDocumentFile(String fileName)
     {
         //A public documents directory does not exist so just shove it into the downloads one and forget about it xD
-        //you may lack permission if you  via emulator works fine on my phone though
+        //you may lack permission if you run it via emulator works fine on my phone though
         return new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),fileName);
     }
 
     private boolean isExternalStorageWritable()
     {
-        //Ensure the external storage is in fact an sd card and not the emulated one that's built into android devices
-        return Environment.isExternalStorageRemovable() && Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());
+        //Environment.isExternalStorageRemovable() &&
+        //Add this to ensure the external storage is in fact an sd card and not
+        //the emulated one that's built into android devices if you want to test for secondary external storage
+        return Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());
     }
 
     private boolean isExternalStorageReadable()
     {
         String state = Environment.getExternalStorageState();
-        //Ensure the external storage is in fact an sd card and not the emulated one that's built into android devices
-        return Environment.isExternalStorageRemovable() && Environment.MEDIA_MOUNTED.equals(state) || Environment.MEDIA_MOUNTED_READ_ONLY.equals(state);
+        //Environment.isExternalStorageRemovable() &&
+        //Add this to ensure the external storage is in fact an sd card and not
+        //the emulated one that's built into android devices if you want to test for secondary external storage
+        return Environment.MEDIA_MOUNTED.equals(state) || Environment.MEDIA_MOUNTED_READ_ONLY.equals(state);
     }
 
 }
