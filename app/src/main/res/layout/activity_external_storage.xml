@@ -48,6 +48,14 @@
             android:ems="10"
             android:inputType="textPersonName" />
 
+        <CheckBox
+            android:id="@+id/storageType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:checked="true"
+            android:text="Private Storage?" />
+
         <Button
             android:id="@+id/externalWrite"
             android:layout_width="match_parent"
@@ -60,5 +68,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Read" />
+
+        <Button
+            android:id="@+id/deleteExternalFile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Delete File" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

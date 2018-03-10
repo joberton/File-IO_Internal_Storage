@@ -17,7 +17,7 @@ import java.io.FileOutputStream;
 
 public class MainActivity extends UtilityActivity {
 
-    private Button write,read,externalStorage;
+    private Button write,read,externalStorage,deleteFile;
     private EditText fileName,fileData;
 
     private File testInternalStorageFile;
@@ -31,6 +31,8 @@ public class MainActivity extends UtilityActivity {
         write = findViewById(R.id.write);
         read = findViewById(R.id.read);
         externalStorage = findViewById(R.id.externalStorage);
+        deleteFile = findViewById(R.id.deleteInternalFile);
+
         fileName = findViewById(R.id.fileName);
         fileData = findViewById(R.id.fileData);
 
@@ -48,6 +50,10 @@ public class MainActivity extends UtilityActivity {
                     testInternalStorageData = readFileFromStorage(testInternalStorageFile);
                     fileData.setText(testInternalStorageData);
                 }
+                else if(view == deleteFile)
+                {
+                    deleteFile(testInternalStorageFile);
+                }
                 else if(view == externalStorage)
                 {
                     startActivity(new Intent(getApplicationContext(),ExternalStorageActivity.class));
@@ -57,6 +63,7 @@ public class MainActivity extends UtilityActivity {
 
         write.setOnClickListener(onClickListener);
         read.setOnClickListener(onClickListener);
+        deleteFile.setOnClickListener(onClickListener);
         externalStorage.setOnClickListener(onClickListener);
     }
 

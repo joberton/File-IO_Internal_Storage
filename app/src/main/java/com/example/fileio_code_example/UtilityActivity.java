@@ -47,7 +47,6 @@ public class UtilityActivity extends AppCompatActivity {
         {
             FileInputStream inputStream = new FileInputStream(file);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-
             while((asciiCharacter = bufferedReader.read()) != -1) {
                 data.append(Character.toString((char) asciiCharacter));
             }
@@ -60,6 +59,12 @@ public class UtilityActivity extends AppCompatActivity {
             Log.e("File_Read", "An error was encountered while reading from storage: " + e.getMessage());
         }
         return data.toString();
+    }
+
+    public void deleteFile(File file)
+    {
+        file.delete();
+        Toast.makeText(getApplicationContext(),"File has been deleted",Toast.LENGTH_SHORT).show();
     }
 
     public String getViewString(int id)

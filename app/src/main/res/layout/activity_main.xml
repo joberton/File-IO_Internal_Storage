@@ -74,6 +74,12 @@
             tools:layout_editor_absoluteX="229dp" />
 
         <Button
+            android:id="@+id/deleteInternalFile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Delete File?" />
+
+        <Button
             android:id="@+id/externalStorage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
